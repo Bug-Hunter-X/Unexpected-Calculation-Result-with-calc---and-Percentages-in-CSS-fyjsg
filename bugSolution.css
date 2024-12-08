@@ -1,0 +1,11 @@
+The issue was resolved by ensuring that the percentage values in the `calc()` function are correctly interpreted relative to the parent element's dimensions.
+
+For example, instead of using `width: calc(50% + 10px);` when the parent's width is not explicitly set, you might encounter issues because the 50% is calculated against an undefined parent size.
+
+A more reliable approach would be to make sure the parent element has an explicit width (e.g., a fixed width, or width: 100vw), or use the following calculation:
+
+```css
+width: calc(50vw + 10px);
+```
+
+This explicitly uses viewport width (vw), thus providing a definite size against which to calculate the percentage.
